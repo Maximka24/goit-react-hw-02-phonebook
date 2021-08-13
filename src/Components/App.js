@@ -13,8 +13,10 @@ class App extends React.Component {
   };
 
   dataSubmitForm = ({ name, number }) => {
-    const arrayName = this.state.contacts.map((contact) => contact.name);
-    const checkName = arrayName.includes(name);
+    const arrayName = this.state.contacts.map((contact) =>
+      contact.name.toLowerCase()
+    );
+    const checkName = arrayName.includes(name.toLowerCase());
 
     if (checkName) {
       alert(`${name} is already in contacts`);
